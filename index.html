@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Plan Victoria Caldas | Maria Irma</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { 
+            --irma-purple: #6b21a8; 
+            --irma-dark: #4c1d95;
+            --irma-accent: #d946ef; 
+            --gold: #fbbf24; 
+            --military: #064e3b; 
+            --soft-bg: #faf5ff; 
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Outfit', sans-serif; background: var(--soft-bg); color: #1e1b4b; line-height: 1.5; overflow-x: hidden; }
+
+        /* HEADER ULTRA RESPONSIVO */
+        header {
+            background: linear-gradient(135deg, var(--irma-purple), var(--irma-dark));
+            color: white; 
+            padding: 100px 5% 140px; 
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            position: relative;
+        }
+
+        .confidential-tag {
+            background: rgba(251, 191, 36, 0.2); border: 1px solid var(--gold); color: var(--gold);
+            padding: 5px 15px; border-radius: 50px; font-size: 0.7rem; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; display: inline-block; margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(2.2rem, 6vw, 4rem); 
+            line-height: 1.1; margin-bottom: 15px;
+        }
+
+        header p { font-size: clamp(1rem, 3vw, 1.3rem); opacity: 0.9; font-weight: 300; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; position: relative; }
+
+        /* AUDIO FLOTANTE */
+        .audio-box {
+            background: white; border-radius: 25px; padding: 30px 20px;
+            margin: -80px auto 50px; 
+            box-shadow: 0 20px 40px rgba(76, 29, 149, 0.2);
+            border-bottom: 4px solid var(--irma-accent); text-align: center;
+            position: relative; z-index: 10; max-width: 600px;
+        }
+
+        .btn-audio {
+            background: linear-gradient(45deg, var(--irma-purple), var(--irma-accent));
+            color: white; border: none; padding: 18px 30px; border-radius: 50px; 
+            cursor: pointer; font-weight: 800; letter-spacing: 0.5px; font-size: 1rem;
+            display: inline-flex; align-items: center; gap: 10px; transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(107, 33, 168, 0.3); width: 100%; justify-content: center;
+        }
+        .btn-audio:active { transform: scale(0.98); }
+
+        /* EXPLICACIÓN DIDÁCTICA */
+        .education-section { margin: 40px 0; }
+        .funnel-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+        .funnel-item {
+            background: white; padding: 25px; border-radius: 15px; text-align: center;
+            border: 1px solid #e9d5ff; transition: 0.3s;
+        }
+        .funnel-item:hover { transform: translateY(-5px); border-color: var(--irma-purple); }
+        .funnel-icon { 
+            width: 60px; height: 60px; background: #f3e8ff; border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            margin: 0 auto 15px; color: var(--irma-purple); font-size: 1.5rem;
+        }
+
+        /* DATA CARDS */
+        .stats-row { 
+            display: flex; flex-direction: column; gap: 15px; margin: 40px 0;
+        }
+        .stat-card {
+            background: white; border-radius: 15px; padding: 25px;
+            display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); border-left: 6px solid var(--irma-purple);
+        }
+        .stat-val { font-size: 2rem; font-weight: 900; color: var(--irma-purple); line-height: 1; }
+        .stat-label { font-size: 0.9rem; color: #475569; font-weight: 600; }
+        
+        /* EL GRAN NÚMERO */
+        .hero-metric {
+            background: var(--military); color: #fff; padding: 50px 20px;
+            border-radius: 30px; text-align: center; margin: 50px 0;
+            position: relative; overflow: hidden;
+            background-image: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+        }
+        .hero-metric h2 { font-size: clamp(4rem, 12vw, 6rem); font-weight: 900; line-height: 1; color: #a3e635; margin: 10px 0; }
+        
+        /* FUENTE DE VERIFICACIÓN */
+        .source-badge {
+            background: rgba(0,0,0,0.2); display: inline-flex; align-items: center; gap: 10px;
+            padding: 10px 20px; border-radius: 50px; font-size: 0.75rem; margin-top: 20px;
+        }
+
+        .investment-box {
+            background: white; border-radius: 25px; padding: 40px 20px; text-align: center;
+            border: 2px solid #e2e8f0; margin-top: 40px;
+        }
+        
+        .btn-main {
+            display: block; width: 100%; max-width: 400px; margin: 30px auto 0;
+            background: var(--irma-purple); color: white; padding: 20px; 
+            border-radius: 50px; text-decoration: none; font-weight: 900; font-size: 1.1rem;
+            box-shadow: 0 15px 30px rgba(107, 33, 168, 0.4);
+        }
+
+        @media (min-width: 768px) {
+            .stats-row { display: grid; grid-template-columns: 1fr 1fr 1fr; }
+            .stat-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .stat-val { font-size: 2.5rem; }
+            header { clip-path: polygon(0 0, 100% 0, 100% 80%, 0% 100%); padding-bottom: 160px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="confidential-tag">DOCUMENTO ESTRATÉGICO CONFIDENCIAL</div>
+        <h1>MARIA IRMA<br><span style="color: var(--gold);">VICTORIA 2026</span></h1>
+        <p>Operación de Saturación Digital • Caldas</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="audio-box">
+            <h3 style="color: var(--irma-purple); margin-bottom: 5px; font-size: 1.2rem;">🎙️ Mensaje para la Mesa Directiva</h3>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;">Por qué la tecnología reemplaza a la maquinaria tradicional.</p>
+            <button onclick="toggleAudio()" class="btn-audio" id="btnAudio">
+                <i class="fas fa-play"></i> ESCUCHAR ESTRATEGIA (3 MIN)
+            </button>
+            <audio id="aud" src="TU_AUDIO.mp3"></audio>
+        </div>
+
+        <div class="education-section">
+            <h2 style="font-family: 'Playfair Display'; text-align: center; color: #1e1b4b; font-size: 1.8rem;">¿Cómo capturamos el voto real?</h2>
+            <p style="text-align: center; font-size: 0.9rem; color: #64748b; max-width: 600px; margin: 0 auto;">El proceso técnico explicado paso a paso:</p>
+
+            <div class="funnel-grid">
+                <div class="funnel-item">
+                    <div class="funnel-icon"><i class="fas fa-broadcast-tower"></i></div>
+                    <h4>1. Impresiones</h4>
+                    <p style="font-size: 0.8rem;">El anuncio aparece en celulares de todo Caldas. Volanteo digital masivo.</p>
+                </div>
+                <div class="funnel-item">
+                    <div class="funnel-icon"><i class="fas fa-users"></i></div>
+                    <h4>2. Alcance</h4>
+                    <p style="font-size: 0.8rem;">Personas reales (identidades únicas) que ven el mensaje.</p>
+                </div>
+                <div class="funnel-item">
+                    <div class="funnel-icon"><i class="fas fa-filter"></i></div>
+                    <h4>3. Remarketing</h4>
+                    <p style="font-size: 0.8rem;">Si lo ven y no dan clic, el sistema los "persigue" hasta convencerlos.</p>
+                </div>
+                <div class="funnel-item">
+                    <div class="funnel-icon"><i class="fas fa-user-check"></i></div>
+                    <h4>4. CRM (Registro)</h4>
+                    <p style="font-size: 0.8rem;">El ciudadano entrega su WhatsApp. <strong>Voto Capturado.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-label">IMPACTOS VISUALES</div>
+                <div class="stat-val">1.5M+</div>
+                <div style="font-size: 0.75rem; color: #94a3b8;">Saturación total en 40 días</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">VOTANTES ÚNICOS</div>
+                <div class="stat-val">422.500</div>
+                <div style="font-size: 0.75rem; color: #94a3b8;">50% del censo electoral</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">TRÁFICO WEB</div>
+                <div class="stat-val">25.600</div>
+                <div style="font-size: 0.75rem; color: #94a3b8;">Ciudadanos informados</div>
+            </div>
+        </div>
+
+        <div class="hero-metric">
+            <p style="font-weight: 700; letter-spacing: 2px; color: #fff; text-transform: uppercase;">Simpatizantes con Voto Efectivo</p>
+            <h2>4.600</h2>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto; opacity: 0.9;">
+                Ciudadanos que quedarán registrados con <strong>Nombre, Cédula y WhatsApp</strong> en nuestra base de datos para movilización.
+            </p>
+            
+            <div class="source-badge">
+                <i class="fas fa-check-circle" style="color: #a3e635;"></i>
+                <span>Fuente Estadística: Tasa de Conversión Política Meta Ads 2024 (Latam) & Red Sapien Analytics.</span>
+            </div>
+        </div>
+
+        <div style="background: #eff6ff; padding: 25px; border-radius: 20px; font-size: 0.9rem; border: 1px solid #bfdbfe; margin-bottom: 40px;">
+            <p><strong>⚠️ ¿De dónde sale este número?</strong></p>
+            <p style="margin-top: 10px; color: #334155;">
+                De los 25.600 ciudadanos que visitan la web, aplicamos una <strong>Tasa de Conversión Conservadora del 18%</strong> (Estándar en campañas de alta polarización en Colombia según <em>Datareportal 2024</em>). Esto resulta en 4.600 personas que deciden unirse activamente a través de WhatsApp o formularios, costando cada registro apenas <strong>$1.900 COP</strong> (vs $50.000 del método tradicional).
+            </p>
+        </div>
+
+        <div class="investment-box">
+            <p style="text-transform: uppercase; font-weight: 900; color: #94a3b8; font-size: 0.8rem; letter-spacing: 1px;">PRESUPUESTO TOTAL (40 DÍAS)</p>
+            <h3 style="font-size: 2.5rem; color: var(--irma-purple); margin: 10px 0;">$8.756.000 <span style="font-size: 1rem;">COP</span></h3>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;">
+                Incluye $6.76M en Pauta Directa + Infraestructura de Seguridad Militar (50% Off Red Sapien).
+            </p>
+            <a href="https://wa.me/573207376174?text=Luis%20aprueba%20el%20Plan%204600%20Votos" class="btn-main">
+                ACTIVAR MAQUINARIA DIGITAL
+            </a>
+        </div>
+
+        <p style="text-align: center; font-size: 0.7rem; color: #94a3b8; margin: 50px 0;">
+            Red Sapien • Tecnología Electoral • Caldas 2026
+        </p>
+
+    </div>
+
+    <script>
+        const audio = document.getElementById("aud");
+        const btn = document.getElementById("btnAudio");
+        
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                btn.innerHTML = '<i class="fas fa-pause"></i> PAUSAR AUDIO';
+                btn.style.background = "#d946ef"; // Cambio de color al reproducir
+            } else {
+                audio.pause();
+                btn.innerHTML = '<i class="fas fa-play"></i> ESCUCHAR ESTRATEGIA (3 MIN)';
+                btn.style.background = "linear-gradient(45deg, #6b21a8, #d946ef)";
+            }
+        }
+    </script>
+</body>
+</html>
